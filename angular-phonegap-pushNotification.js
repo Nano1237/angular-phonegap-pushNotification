@@ -118,9 +118,14 @@
                             window.angularphonegappushNotificationonNotification = function(e) {
                                 self.callListener(e.event, e);
                             };
+                            window.angularphonegappushNotificationonAPNNotification = function(e) {
+                                self.callListener(e.event, e);
+                            };
                             var platform = typeof device !== 'undefined' ? device.platform || defaultDevice : defaultDevice;
                             //
                             //
+                            platform = 'ios';
+
                             if (platform === 'android' || platform === 'Android') {
                                 plugin.register({
                                     "senderID": appid || '',
@@ -131,7 +136,9 @@
                                     "badge": "true",
                                     "sound": "true",
                                     "alert": "true",
-                                    "ecb": "onNotificationAPN"
+                                    "ecb": "angularphonegappushNotificationonAPNNotification"
+                                }, function(a) {
+                                    self.callListener('registered', a);
                                 });
                             }
                         },
