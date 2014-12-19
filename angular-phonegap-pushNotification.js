@@ -1,3 +1,8 @@
+/*
+ angular-phonegap-pushNotification v0.1
+ (c) 2014 Tim Rücker
+ License: Apache License
+ */
 (function(window) {
     window.angular.module('angular-phonegap-pushNotification', [])
 
