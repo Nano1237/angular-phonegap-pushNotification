@@ -1,14 +1,15 @@
-/*
- angular-phonegap-pushNotification v0.1
- (c) 2014 Tim Rücker
- License: Apache License
+/**
+ * 
+ * angular-phonegap-pushNotification v0.1
+ * (c) 2015 Tim Rücker
+ * License: Apache License
  */
 (function(window) {
     window.angular.module('angular-phonegap-pushNotification', [])
 
             /**
              * 
-             * @description The default device registration if the "device" plugin isnt installed
+             * @description The default device registration if the "device" plugin isn't installed
              * @returns {_L1._L11.Anonym$2|_L1._L16.Anonym$2}
              */
             .constant('angular-phonegap-pushNotification.defaultDevice', 'android')
@@ -26,8 +27,8 @@
                          * 
                          * @description Registers a Device for the PushNotifications
                          * @param {Object} options The registration options
-                         * @param {[Function,Undefined]} successCallback
-                         * @param {[Function,Undefined]} errorCallback
+                         * @param {Function|Undefined} successCallback
+                         * @param {Function|Undefined} errorCallback
                          * @returns {undefined}
                          */
                         register: function(options, successCallback, errorCallback) {
@@ -40,8 +41,8 @@
                         /**
                          * 
                          * @description Unregisters a Device from the PushNotifications
-                         * @param {[Function,Undefined]} successCallback
-                         * @param {[Function,Undefined]} errorCallback
+                         * @param {Function|Undefined} successCallback
+                         * @param {Function|Undefined} errorCallback
                          * @returns {undefined}
                          */
                         unregister: function(successCallback, errorCallback) {
@@ -55,8 +56,8 @@
                          * 
                          * @description Sets the Apple Badgenumber
                          * @param {type} badge The Badge informations
-                         * @param {[Function,Undefined]} successCallback
-                         * @param {[Function,Undefined]} errorCallback
+                         * @param {Function|Undefined} successCallback
+                         * @param {Function|Undefined} errorCallback
                          * @returns {undefined}
                          */
                         setApplicationIconBadgeNumber: function(badge, successCallback, errorCallback) {
@@ -73,8 +74,8 @@
             /**
              * 
              * @description Pushmethods combined as factory
-             * @param {type} plugin The Plugin Methods
-             * @param {type} defaultDevice The Defualt device (android)
+             * @param {_L1._L11.Anonym$2} plugin The Plugin Methods
+             * @param {_L1._L11.Anonym$2|_L1._L16.Anonym$2} defaultDevice The Defualt device (android)
              * @returns {_L1._L51.ret}
              */
             .factory('pushNotification', [
@@ -111,7 +112,7 @@
                          * 
                          * @description Initializes the plugin with the google senderId
                          * It has top be called after "deviceready"!
-                         * @param {[String,Number]} appid The google SenderId
+                         * @param {String|Number} appid The google SenderId
                          * @returns {undefined}
                          */
                         init: function(appid) {
@@ -150,9 +151,9 @@
                         /**
                          * 
                          * @description Adds a new eventlistener for a certain event type
-                         * @param {type} type The type of the listener (can also be a custom listener)
-                         * @param {type} method The calling method
-                         * @returns {registeredFunctions.lenght} The index of the current event for delete
+                         * @param {String} type The type of the listener (can also be a custom listener)
+                         * @param {Function} method The calling method
+                         * @returns {Number} The index of the current event for delete
                          */
                         addListener: function(type, method) {
                             var newEvent = {type: type, method: method};
